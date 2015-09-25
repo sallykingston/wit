@@ -1,0 +1,6 @@
+@mixin linearGradient($r, $g: $r, $b: $r) {
+  background-image: -webkit-linear-gradient(right, rgba($r, $g, $b, 0), rgba($r, $g, $b, 0.35), rgba($r, $g, $b, 0.85), rgba($r, $g, $b, 0.35), rgba($r, $g, $b, 0));
+  background-image:    -moz-linear-gradient(right, rgba($r, $g, $b, 0), rgba($r, $g, $b, 0.35), rgba($r, $g, $b, 0.85), rgba($r, $g, $b, 0.35), rgba($r, $g, $b, 0));
+  background-image:      -o-linear-gradient(right, rgba($r, $g, $b, 0), rgba($r, $g, $b, 0.35), rgba($r, $g, $b, 0.85), rgba($r, $g, $b, 0.35), rgba($r, $g, $b, 0));
+  background-image:      linear-gradient(to right, rgba($r, $g, $b, 0), rgba($r, $g, $b, 0.35), rgba($r, $g, $b, 0.85), rgba($r, $g, $b, 0.35), rgba($r, $g, $b, 0));
+}
