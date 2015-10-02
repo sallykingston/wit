@@ -1,0 +1,14 @@
+language: ruby
+rvm:
+- 2.2.2
+deploy:
+  provider: heroku
+  api_key:
+    secure: OPe0woEWuquKrH/DB0EkGqUhDyYG4eS4D2e38saINzi9KrIBBr1KJyFpsZaJlULd+FhAbXaEQP6PqItc95LusqRUODRCIBrswFALvKzcsToVL9iMkBGOQwfXBVmnzNA+NYUYvIpLZWd551r+ToZw9vs7UI08W477mtisROMWK+O/kezOUbiBb1T7s1GA/V2jaM35SHs+QEspiGgWQVUWHQkmCaBg3y7qIOKzeKeqUOY4Ud7wI5GFouoGYptpG9eEYsrLETf/s5ETMAXpCZ5hG1Ak9/fhXAd7oPJHoiKUa6MBfdNSIyPrKFnegaJBuoW2iy9BbHxbwSaxBEu64V65B2dTqQSjEcJKCfgEuC4ZlqigxUZLhrV6OwqknwpIwvBi7w21LABIozi2STf8YR9CbxL+ZmI3A2yTP8Xfs8fUdaADzuZQeYbH9wqmzK+52WguDd5rIqzZwFU3ekXVbBIqs6qB4tMAGN/oC567S1+jGdCbkXvrLAhsP133PcTImzduMhI8LHIdFeTPPRsr0uybfggxsbsIjKj9VI8dVSojSv2UfZgS1d0QQBWZMjsq0fpy1cT6iVRRj1eDc6jL+ADFveOn0an125RKe/+I1hlCQRsCcrkTfKsTWFD+unKFB8x0ZDlSiK9TkEozJiVmi50f+OBatySFZlXbNp3vvIOFMJY=
+  app: chswomenintech
+  on:
+    repo: easmith2/wit
+before_script:
+  - psql -c 'create database wtech_test;' -U postgres
+install:
+  - bundle install --jobs=3 --retry=3
