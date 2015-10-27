@@ -5,7 +5,7 @@ class UserTest < ActiveSupport::TestCase
     @user = users(:one)
   end
 
-  test 'the mu fixture is valid' do
+  test 'the fixture is valid' do
     assert @user.valid?
   end
 
