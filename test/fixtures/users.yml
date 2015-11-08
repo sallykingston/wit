@@ -1,6 +1,14 @@
 one:
   provider: meetup
-  uid: 187134222
-  name: Liz Smith
+  uid: 123456789
+  name: 'Foo Bar'
   photo: "http://photos3.meetupstatic.com/photos/member/c/f/0/4/member_246112996.jpeg"
   wit_member: true
+  admin: false
+
+two:
+  provider: meetup
+  uid: 187134222
+  name: 'Liz Smith'
+  wit_member: true
+  admin: true
