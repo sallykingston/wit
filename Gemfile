@@ -3,7 +3,6 @@ source 'https://rubygems.org'
 ruby '2.2.2'
 gem 'rails', '4.2.3'
 
-# gem 'activeadmin', github: 'activeadmin'
 gem 'administrate'
 # gem 'browserify-rails'
 # gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
