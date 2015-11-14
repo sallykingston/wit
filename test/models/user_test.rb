@@ -2,30 +2,32 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
   def setup
-    @user = users(:one)
+    @nonAdmin = users(:one)
+    @admin = users(:two)
   end
 
-  test 'the mu fixture is valid' do
-    assert @user.valid?
+  test 'the fixtures are valid' do
+    assert @nonAdmin.valid?, {"non_admin_user": @nonAdmin.errors.messages}
+    assert @admin.valid?, {"admin_user": @admin.errors.messages}
   end
 
   test 'user is invalid without provider' do
-    @user.provider = nil
-    refute @user.valid?
+    @nonAdmin.provider = nil
+    refute @nonAdmin.valid?
   end
 
   test 'user is invalid without uid' do
-    @user.uid = nil
-    refute @user.valid?
+    @nonAdmin.uid = nil
+    refute @nonAdmin.valid?
   end
 
   test 'user is invalid without name' do
-    @user.name = nil
-    refute @user.valid?
+    @nonAdmin.name = nil
+    refute @nonAdmin.valid?
   end
 
   test 'user is valid without photo' do
-    @user.photo = nil
-    assert @user.valid?
+    @nonAdmin.photo = nil
+    assert @nonAdmin.valid?
   end
 end

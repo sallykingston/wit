@@ -10,4 +10,5 @@ class User < ActiveRecord::Base
     end
   end
   validates :provider, :uid, :name, presence: true
+  validates :admin, exclusion: { in: [nil] }
 end
