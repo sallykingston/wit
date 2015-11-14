@@ -16,6 +16,7 @@ class UserDashboard < Administrate::BaseDashboard
     wit_member: Field::Boolean,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
+    admin: Field::Boolean
   }
 
   # COLLECTION_ATTRIBUTES
@@ -25,9 +26,9 @@ class UserDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :id,
-    :provider,
-    :uid,
     :name,
+    :wit_member,
+    :admin
   ]
 
   # SHOW_PAGE_ATTRIBUTES
@@ -43,5 +44,6 @@ class UserDashboard < Administrate::BaseDashboard
     :name,
     :photo,
     :wit_member,
+    :admin
   ]
 end
