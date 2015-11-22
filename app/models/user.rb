@@ -9,7 +9,9 @@ class User < ActiveRecord::Base
       end
     end
   end
-  
+
+  has_many :comments
+
   validates :provider, :uid, :name, presence: true
   validates :admin, exclusion: { in: [nil] }
 end

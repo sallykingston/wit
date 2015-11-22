@@ -1,6 +1,6 @@
 class Article < ActiveRecord::Base
   belongs_to :user
-  belongs_to :commentable, polymorphic: true
+  has_many :comments, as: :commentable
 
   validates :user_id, :title, :content, presence: true
 end
