@@ -4,6 +4,20 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   helper_method :current_admin_user
 
+  def authenticate_wit_membership!
+    unless current_user.wit_member
+      flash[:alert] = "This area is restricted to members of CHS Women in Tech only."
+      redirect_to root_path
+    end
+  end
+
+  def authenticate_admin!
+    unless current_admin_user
+      flash[:alert] = "This area is restricted to administrators only."
+      redirect_to root_path
+    end
+  end
+
   private
 
   def current_user

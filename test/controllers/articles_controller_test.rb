@@ -2,7 +2,7 @@ require 'test_helper'
 
 class ArticlesControllerTest < ActionController::TestCase
   def setup
-    @current_user = users(:one)
+    @current_user = users(:two)
     @attributes = Article.attribute_names
   end
 
@@ -16,6 +16,7 @@ class ArticlesControllerTest < ActionController::TestCase
   end
 
   test 'creates with valid attributes' do
+    current_admin_user = @current_user
     assert_difference('Article.count', 1) do
       post :create, format: :json,
                     article: { title: 'I am an article!',
@@ -27,6 +28,7 @@ class ArticlesControllerTest < ActionController::TestCase
   end
 
   test 'does not create with invalid attributes' do
+    current_admin_user = @current_user
     assert_no_difference('Article.count') do
       post :create, format: :json,
                     article: { title: nil,
