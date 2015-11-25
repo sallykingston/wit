@@ -9,8 +9,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="main">
+    <div class="main__overlay">
+      <%= render 'layouts/nav' %>
 
-<%= yield %>
-
+      <%= yield %>
+    </div>
+  </div>
 </body>
 </html>

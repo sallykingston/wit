@@ -1,42 +1,23 @@
-<div class="main">
-  <div class="main__overlay">
-    <div class="main__header">
-      <ul class="nav__list">
-        <% if current_user %>
-          <li><%= link_to "Sign Out", signout_path %></li>
-        <% else %>
-          <li><%= link_to "Sign in with Meetup", "/auth/meetup" %></li>
-        <% end %>
-        <% if current_admin_user %>
-          <li><%= link_to "Admin Dash", admin_root_path %></li>
-        <% end %>
-        <% if notice %>
-          <li><%= notice %></li>
-        <% end %>
-      </ul>
-    </div>
-    <div class="main__container">
-      <div class="main__logo">
-        <a href="http://www.meetup.com/Charleston-Women-In-Tech/" target="_blank"><img src="/assets/wit_text.png"></a>
-      </div>
-      <div class="main__message">
-        <% if current_user %>
-          Welcome <%= current_user.name %>!
-        <% else %>
-          Welcome!
-        <% end %>
-        <br />
-        <br />
-        We are working hard to bring you great features, including a community forum and events calendar. Until those shiny new toys are up and running, check out the <a href="http://www.meetup.com/Charleston-Women-In-Tech/" target="_blank">Women in Tech meetup group</a> for details on upcoming events and to connect with other amazing women in tech.
-        <br />
-        <br />
-        Thanks!<br />
-        <br />
-        - the two techettes building this page
-      </div>
-    </div>
-    <div class="main__footer">
-      <a href="mailto:liz.allen.smith@gmail.com?subject=How can I help CHS Women in Tech?" target="_blank">Interested in helping?</a>
-    </div>
+<div class="main__container">
+  <div class="main__logo">
+    <a href="http://www.meetup.com/Charleston-Women-In-Tech/" target="_blank"><img src="/assets/wit_text.png"></a>
   </div>
+  <div class="main__message">
+    <% if current_user %>
+      Welcome <%= current_user.name %>!
+    <% else %>
+      Welcome!
+    <% end %>
+    <br />
+    <br />
+    We are working hard to bring you great features, including a community forum and events calendar. Until those shiny new toys are up and running, check out the <a href="http://www.meetup.com/Charleston-Women-In-Tech/" target="_blank">Women in Tech meetup group</a> for details on upcoming events and to connect with other amazing women in tech.
+    <br />
+    <br />
+    Thanks!<br />
+    <br />
+    - the two techettes building this page
+  </div>
+</div>
+<div class="main__footer">
+  <a href="mailto:liz.allen.smith@gmail.com?subject=How can I help CHS Women in Tech?" target="_blank">Interested in helping?</a>
 </div>

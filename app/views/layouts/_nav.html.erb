@@ -1,0 +1,15 @@
+<div class="main__header">
+  <ul class="nav__list">
+    <% if current_user %>
+      <li><%= link_to "Sign Out", signout_path %></li>
+    <% else %>
+      <li><%= link_to "Sign in with Meetup", "/auth/meetup" %></li>
+    <% end %>
+    <% if current_admin_user %>
+      <li><%= link_to "Admin Dash", admin_root_path %></li>
+    <% end %>
+    <% if notice %>
+      <li><%= notice %></li>
+    <% end %>
+  </ul>
+</div>
