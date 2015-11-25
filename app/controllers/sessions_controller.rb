@@ -22,11 +22,7 @@ require 'net/http'
 
   def verify_wit_membership(auth, token)
     uri = URI("https://api.meetup.com/2/members?group_id=16881012&member_id="+auth["uid"].to_s+"&key="+ENV['MY_MEETUP_KEY'])
-    request = Net::HTTP.get(uri)
-    if auth["provider"] == "meetup" && !request["results"].empty?
-      true
-    else
-      false
-    end
+    request = JSON.parse(Net::HTTP.get(uri))
+    auth["provider"] == "meetup" && !request["results"].empty? ? true : false
   end
 end
