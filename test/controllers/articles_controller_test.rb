@@ -2,42 +2,47 @@ require 'test_helper'
 
 class ArticlesControllerTest < ActionController::TestCase
   def setup
-    @current_user = users(:two)
+    @article = articles(:one)
+    @user = users(:one)
     @attributes = Article.attribute_names
-    session[:user_id] = @current_user.id
+    session[:user_id] = @user.id
   end
 
   def teardown
     session[:user_id] = nil
   end
 
-  test "GET #index" do
-    get :index, format: :json
-    response_item = JSON.parse(response.body)[0]
-    @attributes.each do |attr|
-      assert_equal Article.last.send(attr), response_item[attr]
+  class ArticlesFormatHTML < ArticlesControllerTest
+    test "GET #index" do
+      get :index, format: :html
+      assert assigns(:articles).include?(@article)
+      assert_response 200
     end
-    assert_response :success
+
+    test "GET #show" do
+      get :show, format: :html, id: @article
+      assert_equal @article, assigns(:article)
+      assert_response :success
+    end
   end
 
-  test 'creates with valid attributes' do
-    assert_difference('Article.count', 1) do
-      post :create, format: :json,
-                    article: { title: 'I am an article!',
-                               content: '.ajsdnlajsndakjsndasjdnajs asdjkaslkdjaskdjas asjfalksjdlaskdmalskdm'
-                             }
+  class ArticlesFormatJSON < ArticlesControllerTest
+    test "GET #index json" do
+      get :index, format: :json
+      response_item = JSON.parse(response.body)[0]
+      @attributes.each do |attr|
+        assert_equal Article.last.send(attr), response_item[attr]
+      end
+      assert_response :success
     end
-    assert_response :success
-  end
 
-  test 'does not create with invalid attributes' do
-    assert_no_difference('Article.count') do
-      post :create, format: :json,
-                    article: { title: nil,
-                               content: 'asdjkasdljasldjasld aksldjasdj kalsjd;akjsd'
-                             }
+    test "GET #show" do
+      get :show, format: :json, id: @article
+      response_item = JSON.parse(response.body)
+      @attributes.each do |attr|
+        assert_equal Article.last.send(attr), response_item[attr]
+      end
+      assert_response :success
     end
-    assert_response 422
   end
-
 end
