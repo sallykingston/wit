@@ -12,14 +12,13 @@ It displays a header, and renders the `_form` partial to do the heavy lifting.
   Contains helper methods to help display a form,
   and knows which attributes should be displayed in the resource's form.
 
-[1]: http://www.rubydoc.info/gems/administrate/Administrate/Page/Form
 %>
 
-<% content_for(:title) { "Edit Details: #{page.resource.name}" } %>
-
+<% content_for(:title) { "Edit Article" } %>
+<% console %>
 <header class="header">
   <h1 class="header-heading"><%= content_for(:title) %></h1>
-  <%= link_to "Show #{page.resource.name}", [Administrate::NAMESPACE, page.resource], class: "button" %>
+  <%= link_to "Show Article", [Administrate::NAMESPACE, page.resource], class: "button" %>
 </header>
 
 <%= render "form", page: page %>

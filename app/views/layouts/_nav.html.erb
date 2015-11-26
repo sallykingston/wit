@@ -6,7 +6,7 @@
       <li><%= link_to "Sign in with Meetup", "/auth/meetup" %></li>
     <% end %>
     <% if current_admin_user %>
-      <li><%= link_to "Admin Dash", admin_root_path %></li>
+      <li><%= link_to "Admin Dash", admin_root_path, target: "_blank" %></li>
     <% end %>
     <% if notice %>
       <li><%= notice %></li>
