@@ -3,13 +3,14 @@ require 'test_helper'
 class CommentTest < ActiveSupport::TestCase
   def setup
     @article = articles(:one)
-    @article_comment = comments(:one)
-    # @topic_comment = comments(:two)
+    @article_comment = comments(:article_comment)
+    @topic = topics(:one)
+    @topic_comment = comments(:topic_comment)
   end
 
   test 'the fixtures are valid' do
     assert @article_comment.valid?, {"article comment": @article_comment.errors.messages}
-    # assert @topic_comment.valid?, {"topic comment": @topic_comment.errors.messages}
+    assert @topic_comment.valid?, {"topic comment": @topic_comment.errors.messages}
   end
 
   test 'comment is invalid without user' do
@@ -28,5 +29,9 @@ class CommentTest < ActiveSupport::TestCase
 
   test 'comment is associated with expected article object' do
     assert_equal @article_comment.commentable_id, @article.id, "Commentable ID should match commented object id"
+  end
+
+  test 'comment is associated with expected topic object' do
+    assert_equal @topic_comment.commentable_id, @topic.id, "Commentable ID should match commented object id"
   end
 end

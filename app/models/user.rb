@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
   end
 
   has_many :comments
+  has_many :articles
+  has_many :topics
 
   validates :provider, :uid, :name, presence: true
   validates :admin, exclusion: { in: [nil] }

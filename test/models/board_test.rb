@@ -18,4 +18,12 @@ class BoardTest < ActiveSupport::TestCase
     @board.description = nil
     refute @board.valid?, 'Board must have a description'
   end
+
+  test 'board responds to topics call' do
+    @topic = topics(:one)
+    @topic.board_id = @board.id
+    @topic.save!
+    assert_respond_to @board, :topics, 'Board should respond to topics call'
+    assert @board.topics.include?(@topic), 'Board topics collection should include topic fixture'
+  end
 end
