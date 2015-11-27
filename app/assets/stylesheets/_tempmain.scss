@@ -1,21 +1,17 @@
 .main {
-  background-color: $grey-extralight;
-  min-height: 100%;
+  background-image: url('highres_436133822.jpeg');
+  background-position: center center;
+  background-size: cover;
+  color: $grey-dark;
+  height: 100%;
+  font-family: $primary-font;
 }
-// .main {
-//   background-image: url('highres_436133822.jpeg');
-//   background-position: center center;
-//   background-size: cover;
-//   color: $grey-dark;
-//   height: 100%;
-//   font-family: $primary-font;
-// }
-// .main__overlay {
-//   height: 100%;
-//   width: 100%;
-//   background-color: rgba(0,0,0,0.6);
-//   padding-top: 2.2rem;
-// }
+.main__overlay {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0,0,0,0.6);
+  padding-top: 2.2rem;
+}
 .main__header {
   position: absolute;
   top: 0;
@@ -65,16 +61,14 @@
   margin-top: 20px;
   padding-right: 15px;
   font-size: 18px;
-  font-family: $font-rale;
-  color: $grey-dark;
   @media all and (max-width: $break-xs) {
     font-size: 14px;
   }
 }
 .main__footer {
-  font-size: 1rem;
+  font-size: 10px;
   position: fixed;
   bottom: 0;
   padding: 25px 5px 5px;
-  > a {color: $grey-medium;}
+  > a {color: rgba(255,255,255,0.8);}
 }
