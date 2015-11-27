@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   get '/signout', to: 'sessions#destroy'
 
   resources :articles, only: [:index, :show]
+  resources :forums, controller: "boards", only: [:index, :show]
 end

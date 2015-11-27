@@ -1,0 +1,11 @@
+<div class="article">
+  <div class="article__header">
+    <h1 class="article__title"><%= @board.title %></h1>
+    <div class="article__date"><%= @board.created_at.strftime('%B %-m, %Y') %></div>
+  </div>
+  <div class="article__content">
+    <div class="article__paragraph">
+      <%= simple_format(@board.description) %>
+    </div>
+  </div>
+</div>

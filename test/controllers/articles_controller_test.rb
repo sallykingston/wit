@@ -5,11 +5,6 @@ class ArticlesControllerTest < ActionController::TestCase
     @article = articles(:one)
     @user = users(:one)
     @attributes = Article.attribute_names
-    session[:user_id] = @user.id
-  end
-
-  def teardown
-    session[:user_id] = nil
   end
 
   class ArticlesFormatHTML < ArticlesControllerTest
@@ -20,6 +15,7 @@ class ArticlesControllerTest < ActionController::TestCase
     end
 
     test "GET #show" do
+      @article.update_attributes(user_id: @user.id)
       get :show, format: :html, id: @article
       assert_equal @article, assigns(:article)
       assert_response :success

@@ -1,0 +1,27 @@
+<div class="article">
+  <div class="article__indexHeader">
+    <h1>Look! It's a Forum!</h1>
+  </div>
+  <div class="article__index">
+    <% @boards.order('created_at DESC').each do |board| %>
+      <div class="article__container">
+        <div class="article__indexDate">
+          <div class="article__indexDateMo">
+            <%= board.created_at.strftime('%^b') %>
+          </div>
+          <div class="article__indexDateDay">
+            <%= board.created_at.strftime('%e') %>
+          </div>
+        </div>
+        <div class="article__indexTitleDesc">
+          <div class="article__indexTitle">
+            <%= link_to board.title, forum_path(board) %>
+          </div>
+          <div class="article__indexDesc">
+            <%= board.description %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
