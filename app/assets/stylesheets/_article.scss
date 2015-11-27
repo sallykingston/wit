@@ -1,0 +1,95 @@
+.article {
+  color: $grey-dark;
+  text-align: left;
+  @include maxWidth;
+}
+// ********
+// article index classes
+// ********
+.article__indexHeader {
+  height: 100px;
+  padding-top: 1rem;
+}
+// for all articles
+.article__index {
+
+}
+// for single article
+.article__container {
+  display: block;
+  // height: 10rem;
+  border: 1px solid $grey-light;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+}
+.article__indexDate {
+  @include circle;
+  @include size(5rem);
+  background-color: $pink-medium;
+  color: $grey-extralight;
+  display: inline-block;
+  font-family: $font-puri;
+  font-weight: 100;
+  text-align: center;
+}
+.article__indexDateMo {
+  font-size: 1.6rem;
+  padding-top: 1rem;
+}
+.article__indexDateDay {
+  font-size: 1.5rem;
+}
+.article__indexTitleDesc {
+  display: inline-block;
+  height: 8rem;
+  padding: 1rem;
+  vertical-align: top;
+  width: 85%;
+  @media all and (max-width: $break-s) {
+    width: 75%;
+    height: 9rem;
+  }
+}
+.article__indexTitle {
+  font-size: 2.5rem;
+  font-family: $font-jura;
+  @media all and (max-width: $break-s) {
+    font-size: 2rem;
+  }
+}
+.article__indexDesc {
+  font-size: 1rem;
+  font-family: $font-fira;
+  height: 5rem;
+  overflow: hidden;
+}
+// ********
+// article show classes
+// ********
+.article__header {
+  height: 100px;
+  padding-top: 2rem;
+}
+.article__title {
+  font-size: 2rem;
+  font-family: $font-jura;
+}
+.article__date {
+  display: inline-block;
+  font-size: 1rem;
+  font-family: $font-jura;
+}
+.article__author {
+  display: inline-block;
+  font-size: 1rem;
+  font-family: $font-jura;
+}
+.article__content {
+
+}
+.article__paragraph {
+  font-size: 1rem;
+  font-family: $font-fira;
+  line-height: 1.5rem;
+  white-space: pre-line;
+}

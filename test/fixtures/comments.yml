@@ -1,4 +1,9 @@
-one:
+article_comment:
   user_id: 1
   content: "Rose... before I go, I just want to tell you: you were fantastic. Absolutely fantastic. And do you know what? So was I! One day, just one day, maybe I'll meet somebody who gets the whole 'don't wander off' thing. Now, don't antagonize her. I love a happy medium! Lots of planets have a North. Ricky, if I was to tell you what I was doing to the controls of my frankly magnificent timeship, would you even begin to understand? You look beautiful! ...considering. That you're human. Nice to meet you, Rose."
   commentable: one (Article)
+
+topic_comment:
+  user_id: 1
+  content: "Black, caramelization, froth cup beans fair trade, acerbic robust grounds medium aged. Coffee grounds as, crema macchiato americano iced grinder sugar. Galão, coffee sugar, aged, cinnamon, java chicory frappuccino cortado seasonal. Mocha et instant, breve organic kopi-luwak robusta rich lungo robust steamed flavour. Grinder roast eu filter strong qui french press."
+  commentable: one (Topic)

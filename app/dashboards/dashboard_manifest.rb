@@ -8,7 +8,8 @@ class DashboardManifest
   # to work correctly.
   DASHBOARDS = [
     :users,
-    :articles
+    :articles,
+    :boards
   ]
 
   # `ROOT_DASHBOARD`

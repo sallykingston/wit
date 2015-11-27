@@ -36,5 +36,24 @@ class UserTest < ActiveSupport::TestCase
     refute @admin.valid?, "User admin status cannot be nil"
   end
 
+  test 'user responds to topics call' do
+    @topic = topics(:one)
+    @topic.update_attributes(user_id: @nonAdmin.id)
+    assert_respond_to @nonAdmin, :topics, 'User should respond to topics call'
+    assert @nonAdmin.topics.include?(@topic), 'User topics collection should include topic fixture'
+  end
 
+  test 'user responds to articles call' do
+    @article = articles(:one)
+    @article.update_attributes(user_id: @admin.id)
+    assert_respond_to @admin, :articles, 'User should respond to articles call'
+    assert @admin.articles.include?(@article), 'User articles collection should include article fixture'
+  end
+
+  test 'user responds to comments call' do
+    @comment = comments(:article_comment)
+    @comment.update_attributes(user_id: @nonAdmin.id)
+    assert_respond_to @nonAdmin, :comments, 'User should respond to comments call'
+    assert @nonAdmin.comments.include?(@comment), 'User comments collection should include comment fixture'
+  end
 end

@@ -1,24 +1,24 @@
 <div class="article">
   <div class="article__indexHeader">
-    <h1>Words... So Many Words...</h1>
+    <h1>Look! It's a Forum!</h1>
   </div>
   <div class="article__index">
-    <% @articles.order('created_at DESC').each do |article| %>
+    <% @boards.order('created_at DESC').each do |board| %>
       <div class="article__container">
         <div class="article__indexDate">
           <div class="article__indexDateMo">
-            <%= article.created_at.strftime('%^b') %>
+            <%= board.created_at.strftime('%^b') %>
           </div>
           <div class="article__indexDateDay">
-            <%= article.created_at.strftime('%e') %>
+            <%= board.created_at.strftime('%e') %>
           </div>
         </div>
         <div class="article__indexTitleDesc">
           <div class="article__indexTitle">
-            <%= link_to article.title, article_path(article) %>
+            <%= link_to board.title, forum_topics_path(board) %>
           </div>
           <div class="article__indexDesc">
-            <%= article.content %>
+            <%= board.description %>
           </div>
         </div>
       </div>
