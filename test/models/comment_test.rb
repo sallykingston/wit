@@ -6,6 +6,8 @@ class CommentTest < ActiveSupport::TestCase
     @article_comment = comments(:article_comment)
     @topic = topics(:one)
     @topic_comment = comments(:topic_comment)
+    @user = users(:one)
+    @article_comment.update_attributes(user_id: @user.id)
   end
 
   test 'the fixtures are valid' do
@@ -20,6 +22,7 @@ class CommentTest < ActiveSupport::TestCase
 
   test 'comment responds to user call' do
     assert_respond_to @article_comment, :user, "Comment must respond to user call"
+    assert_equal @article_comment.user, @user, "Comment user should be user fixture"
   end
 
   test 'comment is invalid without content' do

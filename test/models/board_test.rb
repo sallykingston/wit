@@ -21,8 +21,7 @@ class BoardTest < ActiveSupport::TestCase
 
   test 'board responds to topics call' do
     @topic = topics(:one)
-    @topic.board_id = @board.id
-    @topic.save!
+    @topic.update_attributes(board_id: @board.id)
     assert_respond_to @board, :topics, 'Board should respond to topics call'
     assert @board.topics.include?(@topic), 'Board topics collection should include topic fixture'
   end

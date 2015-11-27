@@ -4,9 +4,8 @@ class TopicTest < ActiveSupport::TestCase
   def setup
     @topic = topics(:one)
     @user = users(:one)
-    @topic.user_id = @user.id
     @board = boards(:one)
-    @topic.board_id = @board.id
+    @topic.update_attributes(board_id: @board.id, user_id: @user.id)
   end
 
   test 'the fixture is valid' do
@@ -29,6 +28,7 @@ class TopicTest < ActiveSupport::TestCase
 
   test 'topic responds to board call' do
     assert_respond_to @topic, :board, "Topic must respond to board call"
+    assert_equal @topic.board, @board, "Topic board should be board fixture"
   end
 
   test 'topic is invalid without title' do

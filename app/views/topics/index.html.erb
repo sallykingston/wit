@@ -1,0 +1,26 @@
+<div class="article">
+  <div class="article__indexHeader">
+    <h1><%= @board.title %> | All Topics</h1>
+    <%= link_to 'New Topic', new_forum_topic_path %> |  | <%= link_to 'All Forums', forums_path %>
+  </div>
+  <div class="article__index">
+    <% @topics.order('updated_at DESC').each do |topic| %>
+      <div class="topic__title">
+        <%= link_to topic.title, topic_path(topic) %>
+      </div>
+      <div class="topic__created">
+        Created by <%= topic.user.name %>
+        at <%= topic.created_at.strftime('%m/%d/%Y %H:%M') %>
+      </div>
+      <div class="topic__updated">
+        <% if topic.comments.count != 0 %>
+          Last Post by (some user)
+          at <%= topic.updated_at.strftime('%m/%d/%Y %H:%M') %>
+        <% else %>
+          Last Post by <%= topic.user.name %>
+          at <%= topic.updated_at.strftime('%m/%d/%Y %H:%M') %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

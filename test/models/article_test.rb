@@ -4,6 +4,8 @@ class ArticleTest < ActiveSupport::TestCase
   def setup
     @article = articles(:one)
     @announcement = articles(:two)
+    @user = users(:one)
+    @article.update_attributes(user_id: @user.id)
   end
 
   test 'the fixtures are valid' do
@@ -18,6 +20,7 @@ class ArticleTest < ActiveSupport::TestCase
 
   test 'article responds to user call' do
     assert_respond_to @article, :user, "Article must respond to user call"
+    assert_equal @article.user, @user, "Article user should be user fixture"
   end
 
   test 'article is invalid without title' do
