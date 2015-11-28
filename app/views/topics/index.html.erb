@@ -1,11 +1,36 @@
-<div class="article">
-  <div class="article__indexHeader">
+<div class="board">
+  <div class="board__indexHeader">
     <h1><%= @board.title %> | All Topics</h1>
-    <%= link_to 'New Topic', new_forum_topic_path %> |  | <%= link_to 'All Forums', forums_path %>
+    <div class="board__headerLinks">
+      <%= link_to 'New Topic', new_forum_topic_path %> | <%= link_to 'All Forums', forums_path %>
+    </div>
   </div>
-  <div class="article__index">
+  <div class="board__topics">
+    <div class="board__topicsColHeaders">
+      <div class="board__topicTitle">Topic</div>
+      <div class="board__topicCreated">Created By</div>
+      <div class="board__topicUpdated">Last Post By</div>
+    </div>
+
     <% @topics.order('updated_at DESC').each do |topic| %>
-      <div class="topic__title">
+
+    <div class="board__topic">
+      <div class="board__topicTitle">
+        <%= link_to topic.title, topic_path(topic), class:"board__topicAlternateLink" %>
+      </div>
+      <div class="board__topicCreated">
+        <%= topic.user.name %>
+      </div>
+      <div class="board__topicUpdated">
+        <%= topic.user.name %>
+        at <%= topic.updated_at.strftime('%H:%M %m/%d/%Y') %>
+      </div>
+      <%= link_to '', topic_path(topic), class:"board__topicPrimaryLink" %>
+    </div>
+
+
+
+      <!-- <div class="topic__title">
         <%= link_to topic.title, topic_path(topic) %>
       </div>
       <div class="topic__created">
@@ -20,7 +45,9 @@
           Last Post by <%= topic.user.name %>
           at <%= topic.updated_at.strftime('%m/%d/%Y %H:%M') %>
         <% end %>
-      </div>
+      </div> -->
+
+
     <% end %>
   </div>
 </div>

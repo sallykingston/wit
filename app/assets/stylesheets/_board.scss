@@ -1,0 +1,286 @@
+// classes used in all board views
+.board {
+  @include maxWidth;
+  padding-bottom: 50px;
+  margin-bottom: 0;
+}
+.board__indexHeader {
+  margin-bottom: 40px;
+  position: relative;
+  @media all and (max-width: $break-s) {
+    margin-bottom: 20px;
+  }
+}
+.board__indexHeader h1 {
+  font-size: 2rem;
+  padding-top: 15px;
+  @media all and (min-width: $break-s) {
+    margin-left: -15px;
+    font-size: 2.3rem;
+  }
+}
+.board__headerLinks {
+  display: inline-block;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  @media all and (max-width: $break-s) {
+    display: block;
+    position: relative;
+    > a {white-space: nowrap;}
+  }
+  @media all and (min-width: $break-m) {
+    margin-right: -15px;
+  }
+}
+
+// classes used in the boards index view
+.board__index {
+  font-size: 0;
+  @media all and (max-width:  $break-s) {
+    bottom: 100px;
+  }
+}
+.board__tileContainer {
+  @include size(33.33333333%, 250px);
+  display: inline-block;
+  @media all and (min-width: $break-m) {
+    &:first-child {
+      margin: 0 15px 0 -15px;
+    }
+    &:last-child {
+      margin: 0 -15px 0 15px;
+    }
+  }
+  @media all and (max-width: $break-m) and (min-width: $break-s) {
+    @include size(50%, 250px);
+    &:nth-child(odd) {
+      margin: 0 15px 15px -10px;
+    }
+    &:nth-child(even) {
+      margin-right: -10px;
+    }
+  }
+  @media all and (max-width: $break-s) {
+    @include size(100%, 250px);
+    margin: 0 -10px 15px 0;
+  }
+}
+.board__indexTile {
+  @include tile(100%, 250px, 15px);
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  font-size: 1rem;
+  overflow: hidden;
+}
+.board__indexTitle {
+  font-size: 1.5rem;
+  padding-bottom: 15px;
+  > a {
+    text-decoration: none
+  }
+}
+.board__indexDesc {
+  font-size: 1rem;
+  padding-bottom: 15px;
+}
+.board__indexTopicsRecent {
+  padding-left: 10px;
+}
+.board__indexTopic {
+  min-height: 50px;
+  position: relative;
+}
+.board__indexTopicTitle {
+  max-height: 3rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  > a {}
+}
+.board__indexTopicUpdated {
+  color: $grey-medium;
+  font-size: 0.8rem;
+  font-style: italic;
+  > a {
+    font-style: italic;
+    text-decoration: none;
+    &:hover {
+      border-bottom: 1px solid;
+    }
+  }
+}
+// classes used in the board guidelines
+.board__guidelines {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.guidelines_trigger {
+  position: absolute;
+  right: 0;
+  top: 0;
+  clip: rect(0, 0, 0, 0);
+}
+.board__guidelines {
+  position: relative;
+}
+.guidelines_trigger:checked ~ .board__guidelinesContent {
+  max-height: 1500px;
+}
+.guidelines_trigger + label, .board__guidelinesContent {
+  -webkit-transition: max-height 0.8s;
+     -moz-transition: max-height 0.8s;
+          transition: max-height 0.8s;
+}
+.guidelines__trigger1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  @include size(100%, 50px);
+  z-index: 1;
+  cursor: pointer;
+}
+.guidelines__trigger2 {
+  @include paragraph;
+  @include size(auto, 20px);
+  cursor: pointer;
+  font-style: italic;
+  margin: 0 0 5px 15px;
+}
+.board__guidelinesTitle {
+  background-color: $blue-medium;
+  color: $white;
+  height: 50px;
+  line-height: 50px;
+  padding-left: 15px;
+  position: relative;
+  white-space: nowrap;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+}
+.board__guidelinesContent {
+  max-height: 0;
+  @include tile($w: 100%, $pad: 0px, $bkgclr: $grey-light);
+  overflow: hidden;
+  background-color: $grey-light;
+  color: $grey-dark;
+  font-size: 0;
+  > p {
+    @include paragraph;
+    padding: 15px 0 0 15px;
+    margin: 0;
+  }
+}
+.board__guidelinesList {
+  display: inline-block;
+  font-size: 1rem;
+  padding: 0 30px;
+  text-align: justify;
+  vertical-align: top;
+  width: 50%;
+  @include listPaws;
+  > h3 {
+    margin-left: -15px;
+  }
+  &:first-child {
+    padding-right: 15px;
+  }
+  &:last-child {
+    padding-left: 15px;
+  }
+  @media all and (max-width: $break-s) {
+    width: 100%;
+    padding: 0 30px;
+  }
+}
+// classes used in the topic index (used as a board show) view
+.board__topics {
+  margin-top: 10px;
+}
+.board__topic {
+  position: relative;
+  height: 50px;
+  line-height: 50px;
+  padding-left: 15px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.board__topic {
+  &:nth-child(2n+1) {
+    background-color: $green-light;
+  }
+}
+.board__topicPrimaryLink {
+  position: absolute;
+  @include size(100%);
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+.board__topicAlternateLink {
+  position: relative;
+  z-index: 10;
+}
+.board__topicsColHeaders {
+  @include title;
+  padding-left: 15px;
+  height: 30px;
+  background-color: $grey-medium;
+  margin-top: 10px;
+  line-height: 30px;
+}
+.board__topicTitle {
+  width: 50%;
+  overflow: hidden;
+  display: inline-block;
+  text-overflow: ellipsis;
+  @media all and (max-width:  $break-m) {
+    width: 60%;
+  }
+}
+.board__topicCreated,
+.board__topicUpdated {
+  display: inline-block;
+  font-size: 0.9rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.board__topicCreated a,
+.board__topicUpdated a {
+  color: inherit;
+  font-style: italic;
+  text-decoration: none;
+  &:hover {
+    border-bottom: 1px solid;
+  }
+}
+.board__topicCreated {
+  width: 15%;
+  @media all and (max-width:  $break-m) {
+    display: none;
+  }
+}
+.board__topicUpdated {
+  width: 30%;
+  @media all and (max-width:  $break-m) {
+    width: 35%;
+  }
+}
+
+// // classes used in the boards new/edit views
+// .board__new {
+//   @include tile(100%);
+// }
+//
+// // classes used in the boards form partial
+// .board__formErrors {
+//   @include formErrors;
+// }
+// .board__form {
+//
+// }
+// .board__formTitle {
+//
+// }
+// .board__formSubmit {
+//
+// }
