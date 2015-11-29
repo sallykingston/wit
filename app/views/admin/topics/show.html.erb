@@ -30,24 +30,6 @@ as well as a link to its edit page.
 <dl>
   <% page.attributes.each do |attribute| %>
     <dt class="attribute-label"><%= attribute.name.titleize %></dt>
-
-    <dd class="attribute-data">
-      <%= link_to field.data, [Administrate::NAMESPACE, field.data] %>
-    </dd>
+    <dd class="attribute-data"><%= render_field attribute %></dd>
   <% end %>
-  <dt class="attribute-label"><%= attribute.name.titleize %></dt>
-
-  <dd class="attribute-data">
-    <%= link_to field.data, [Administrate::NAMESPACE, field.data] %>
-  </dd>
-  <dt class="attribute-label"><%= attribute.name.titleize %></dt>
-
-  <dd class="attribute-data">
-    <%= link_to field.data, [Administrate::NAMESPACE, field.data] %>
-  </dd>
-  <dt class="attribute-label"><%= attribute.name.titleize %></dt>
-
-  <dd class="attribute-data">
-    <%= link_to field.data, [Administrate::NAMESPACE, field.data] %>
-  </dd>
 </dl>
