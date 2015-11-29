@@ -24,6 +24,6 @@
 <dl>
   <% page.attributes.each do |attribute| %>
     <dt class="attribute-label"><%= attribute.name.titleize %></dt>
-    <dd class="attribute-data"><%= simple_format(render_field attribute) %></dd>
+    <dd class="attribute-data"><%= render_field attribute %></dd>
   <% end %>
 </dl>
