@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
   # before_action :authenticate_wit_membership!
 
   def index
-    @articles = Article.all
+    @articles = Article.order('created_at DESC').page(params[:page])
     respond_to do |format|
       format.html
       format.json { render json: @articles }
@@ -11,6 +11,7 @@ class ArticlesController < ApplicationController
 
   def show
     @article = get_article
+    @comments = @article.comments.order('created_at ASC').page(params[:page])
     respond_to do |format|
       format.html
       format.json { render json: @article }

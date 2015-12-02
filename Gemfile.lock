@@ -255,6 +255,7 @@ DEPENDENCIES
   foreman
   jbuilder (~> 2.0)
   jquery-rails
+  kaminari
   omniauth
   omniauth-meetup
   paranoia (~> 2.0)

@@ -9,7 +9,8 @@ class DashboardManifest
   DASHBOARDS = [
     :users,
     :articles,
-    :boards
+    :boards,
+    :topics
   ]
 
   # `ROOT_DASHBOARD`

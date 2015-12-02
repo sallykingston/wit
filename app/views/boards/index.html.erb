@@ -1,24 +1,32 @@
-<div class="article">
-  <div class="article__indexHeader">
+<div class="board">
+  <div class="board__indexHeader">
     <h1>Look! It's a Forum!</h1>
   </div>
-  <div class="article__index">
-    <% @boards.order('created_at DESC').each do |board| %>
-      <div class="article__container">
-        <div class="article__indexDate">
-          <div class="article__indexDateMo">
-            <%= board.created_at.strftime('%^b') %>
-          </div>
-          <div class="article__indexDateDay">
-            <%= board.created_at.strftime('%e') %>
-          </div>
-        </div>
-        <div class="article__indexTitleDesc">
-          <div class="article__indexTitle">
+  <%= render 'guidelines' %>
+  <div class="board__index">
+    <%= paginate @boards %>
+    <% @boards.each do |board| %>
+      <div class="board__tileContainer">
+        <div class="board__indexTile">
+          <div class="board__indexTitle">
             <%= link_to board.title, forum_topics_path(board) %>
           </div>
-          <div class="article__indexDesc">
+          <div class="board__indexDesc">
             <%= board.description %>
+          </div>
+          Recent Topics
+          <div class="board__indexTopicsRecent">
+            <% board.topics.order('updated_at DESC').last(3).each do |topic| %>
+              <div class="board__indexTopic">
+                <div class="board__indexTopicTitle">
+                  <%= link_to topic.title, topic_path(topic) %>
+                </div>
+                <div class="board__indexTopicUpdated">
+                  Last Post by (somebody)
+                  on <%= topic.updated_at.strftime('%m/%d/%Y') %>
+                </div>
+              </div>
+            <% end %>
           </div>
         </div>
       </div>

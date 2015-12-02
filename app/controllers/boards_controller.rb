@@ -2,7 +2,7 @@ class BoardsController < ApplicationController
   # before_action :authenticate_wit_membership!
 
   def index
-    @boards = Board.all
+    @boards = Board.order('title').page(params[:page])
     respond_to do |format|
       format.html
       format.json { render json: @boards }

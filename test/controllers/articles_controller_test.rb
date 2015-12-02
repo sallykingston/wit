@@ -5,6 +5,8 @@ class ArticlesControllerTest < ActionController::TestCase
     @article = articles(:one)
     @user = users(:one)
     @attributes = Article.attribute_names
+    @comment = comments(:article_comment)
+    @comment.update_attributes(user_id: @user.id)
   end
 
   class ArticlesFormatHTML < ArticlesControllerTest
