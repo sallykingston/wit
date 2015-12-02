@@ -13,4 +13,5 @@
       <%= simple_format(@topic.content) %>
     </div>
   </div>
+  <%= render partial: "shared/comments", locals: { item: @topic } %>
 </div>

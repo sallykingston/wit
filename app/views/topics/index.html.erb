@@ -11,8 +11,8 @@
       <div class="board__topicCreated">Created By</div>
       <div class="board__topicUpdated">Last Post By</div>
     </div>
-
-    <% @topics.order('updated_at DESC').each do |topic| %>
+    <%= paginate @topics %>
+    <% @topics.each do |topic| %>
 
     <div class="board__topic">
       <div class="board__topicTitle">

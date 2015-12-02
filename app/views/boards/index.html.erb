@@ -4,7 +4,8 @@
   </div>
   <%= render 'guidelines' %>
   <div class="board__index">
-    <% @boards.order('created_at DESC').each do |board| %>
+    <%= paginate @boards %>
+    <% @boards.each do |board| %>
       <div class="board__tileContainer">
         <div class="board__indexTile">
           <div class="board__indexTitle">

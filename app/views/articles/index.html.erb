@@ -3,7 +3,8 @@
     <h1>Words... So Many Words...</h1>
   </div>
   <div class="article__index">
-    <% @articles.order('created_at DESC').each do |article| %>
+    <%= paginate @articles %>
+    <% @articles.each do |article| %>
       <div class="article__container">
         <div class="article__indexDate">
           <div class="article__indexDateMo">

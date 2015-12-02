@@ -3,7 +3,7 @@ class TopicsController < ApplicationController
 
   def index
     @board = get_board
-    @topics = @board.topics
+    @topics = @board.topics.order('created_at DESC').page(params[:page])
     respond_to do |format|
       format.html
       format.json { render json: @topics }
@@ -35,6 +35,7 @@ class TopicsController < ApplicationController
 
   def show
     @topic = get_topic
+    @comments = @topic.comments.order('created_at ASC').page(params[:page])
     respond_to do |format|
       format.html
       format.json { render json: @topic }

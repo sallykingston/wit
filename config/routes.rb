@@ -12,13 +12,12 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback', to: 'sessions#create'
   get '/signout', to: 'sessions#destroy'
 
-  # concern :commentable do
-  #   resources :comments
-  # end
-
-  resources :articles, only: [:index, :show]
-  resources :forums, controller: "boards", only: [:index, :show] do
-    resources :topics, shallow: true
+  concern :commentable do
+    resources :comments, only: [:create, :destroy]
   end
 
+  resources :articles, only: [:index, :show], concerns: :commentable
+  resources :forums, controller: "boards", only: [:index, :show] do
+    resources :topics, concerns: :commentable, shallow: true
+  end
 end

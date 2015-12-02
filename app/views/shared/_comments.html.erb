@@ -1,0 +1,15 @@
+<% if item.comments.empty? %>
+  No comments to display.
+<% else %>
+  <%= paginate @comments %>
+  <% @comments.each do |comment| %>
+    <%= comment.user.name %> replied: <br />
+    <%= comment.created_at.strftime('%H:%M %m/%d/%Y') %><br />
+    <%= comment.content %><br /><br />
+  <% end %>
+<% end %>
+Add Comment
+<%= form_for([item, Comment.new(commentable_type: item.class, commentable_id: item.id)]) do |f| %>
+  <%= f.text_field :content %>
+  <%= f.submit %>
+<% end %>
