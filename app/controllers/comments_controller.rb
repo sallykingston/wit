@@ -18,6 +18,41 @@ class CommentsController < ApplicationController
     end
   end
 
+  def update
+    @item = commented_item
+    @comment = get_comment
+    respond_to do |format|
+      if @comment.user == current_user
+        if @comment.update_attributes(comment_params)
+          format.html {
+            flash[:success] = "Comment successfully posted!"
+            redirect_to commented_item_url(@item)
+          }
+        else
+          format.html {
+            flash[:alert] = "Something about your reply is off.... #{@comment.errors.messages}"
+            redirect_to commented_item_url(@item)
+          }
+        end
+      else
+        format.html {
+          flash[:notice] = "You didn't post this reply! Only the author can make changes."
+          redirect_to commented_item_url(@item)
+        }
+      end
+    end
+  end
+
+  def destroy
+    @item = commented_item
+    @comment = get_comment
+    @comment.destroy
+    respond_to do |format|
+      format.html { redirect_to commented_item_url(@item) }
+      format.json { head :no_content }
+    end
+  end
+
   private
 
   def comment_params
@@ -38,5 +73,9 @@ class CommentsController < ApplicationController
     else
       article_path(commented_item)
     end
+  end
+
+  def get_comment
+    Comment.find(params[:id])
   end
 end

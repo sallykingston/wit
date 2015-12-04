@@ -42,4 +42,52 @@ class CommentsControllerTest < ActionController::TestCase
     assert_match /Something about your reply is off.... /, flash[:error], "Failed comment create should trigger flash error"
     assert_redirected_to topic_path(@topic), "Failed comment create should redirect to parent topic show"
   end
+
+  test "PATCH #update succeeds with valid attributes" do
+    old_content = @comment.content
+    new_content = "beep boop beep beep bop boop blip beep boop beep boop beep beep beep bop boop blip beep boop"
+    patch :update,  format: :html,
+                    topic_id: @topic.id,
+                    id: @comment.id,
+                    comment: { content: new_content }
+    @comment.reload
+    assert @comment.content == new_content
+    assert_equal @comment.user.id, session[:user_id], "Comment user should be the current session user"
+    assert_redirected_to topic_path(@topic), "Comment update should redirect to parent topic show"
+  end
+
+  test "PATCH #update fails with invalid attributes" do
+    old_content = @comment.content
+    patch :update,  format: :html,
+                    topic_id: @topic.id,
+                    id: @comment.id,
+                    comment: { content: nil }
+    @comment.reload
+    assert @comment.content == old_content
+    assert_equal @comment.user.id, session[:user_id], "Comment user should be the current session user"
+    assert_redirected_to topic_path(@topic), "Comment update should redirect to parent topic show"
+  end
+
+  test "PATCH #update fails with valid attributes when comment user is not session user" do
+    @diff_user = users(:two)
+    session[:user_id] = @diff_user.id
+    old_content = @comment.content
+    new_content = "beep boop beep beep bop boop blip beep boop beep boop beep beep beep bop boop blip beep boop"
+    patch :update,  format: :html,
+                    topic_id: @topic.id,
+                    id: @comment.id,
+                    comment: { content: new_content }
+    @comment.reload
+    assert @comment.content == old_content
+    refute @comment.user.id == session[:user_id], "Current session user should not be comment author"
+    assert_match /You didn't post this reply! Only the author can make changes./, flash[:notice], "Failed comment update should trigger flash alert"
+    assert_redirected_to topic_path(@topic), "Failed comment update by user other than author should redirect to parent topic show"
+  end
+
+  test "DELETE #destroy" do
+    assert_difference('Comment.count', -1) do
+      delete :destroy, format: :html, topic_id: @topic.id, id: @comment.id
+    end
+    assert_redirected_to topic_path(@topic)
+  end
 end
