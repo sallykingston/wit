@@ -1,0 +1,225 @@
+// classes used in the topic index (used as a board show)
+.board__topics {
+  margin-top: 10px;
+}
+.board__topic {
+  position: relative;
+  height: 50px;
+  line-height: 50px;
+  padding-left: 15px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.board__topic {
+  &:nth-child(2n+1) {
+    background-color: $green-light;
+  }
+}
+.board__topicPrimaryLink {
+  position: absolute;
+  @include size(100%);
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+.board__topicAlternateLink {
+  position: relative;
+  z-index: 10;
+}
+.board__topicsColHeaders {
+  @include title;
+  padding-left: 15px;
+  height: 30px;
+  background-color: $grey-light;
+  margin-top: 10px;
+  line-height: 30px;
+}
+.board__topicTitle {
+  width: 50%;
+  overflow: hidden;
+  display: inline-block;
+  text-overflow: ellipsis;
+  @media all and (max-width:  $break-m) {
+    width: 60%;
+  }
+}
+.board__topicCreated,
+.board__topicUpdated {
+  display: inline-block;
+  font-size: 0.9rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.board__topicCreated a,
+.board__topicUpdated a {
+  color: inherit;
+  font-style: italic;
+  text-decoration: none;
+  &:hover {
+    border-bottom: 1px solid;
+  }
+}
+.board__topicCreated {
+  width: 15%;
+  @media all and (max-width:  $break-m) {
+    display: none;
+  }
+}
+.board__topicUpdated {
+  width: 30%;
+  @media all and (max-width:  $break-m) {
+    width: 35%;
+  }
+}
+
+// classes used in the topic show
+.topic__header {
+  position: relative;
+  margin-bottom: 20px;
+}
+.topic__header h1 {
+  @include font(1.8rem);
+  display: inline-block;
+  line-height: 2rem;
+  margin-bottom: 20px;
+  @media all and (min-width: $break-s) {
+    font-size: 2rem;
+    margin-bottom: 40px;
+  }
+}
+.topic__footer {
+  position: relative;
+}
+.topic__headerLinksReply,
+.topic__headerLinksNav {
+  display: block;
+  position: relative;
+  white-space: nowrap;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  @media all and (min-width: $break-s) {
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+  }
+}
+.topic__headerLinksReply {
+  padding-top: 15px;
+  @media all and (min-width: $break-s) {
+    left: 0;
+  }
+}
+.topic__headerLinksNav {
+  @media all and (min-width: $break-s) {
+    right: 0;
+  }
+}
+.topic__headerLinksReturn {
+  display: block;
+  position: relative;
+  white-space: nowrap;
+  overflow-x: hidden;
+  margin-top: -15px;
+}
+.topic__postList {
+
+}
+.topic__post {
+  @include tile(auto, $pad: 10px, $topMarg: 20px);
+}
+.topic__postHeader {
+  @include size(100%, 50px);
+}
+.topic__postAvatar {
+  @include size(40px);
+  float: left;
+  margin-right: 10px;
+  overflow: hidden;
+}
+.topic__postAvatar img {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+.topic__postUser {
+  display: inline-block;
+  vertical-align: top;
+}
+.topic__postTime {
+  display: inline-block;
+  vertical-align: top;
+}
+.topic__postContent {
+  min-height: 75px;
+}
+.topic__new {
+  @include tile(100%);
+}
+.topic__form {
+  display: table;
+  width: 100%;
+  label,
+  input,
+  textarea {
+    display: table-cell;
+  }
+}
+.topic__formTitle,
+.topic__formBoard,
+.topic__formContent {
+  display: table-row;
+  font-size: 1rem;
+  @media all and (max-width: $break-s) {
+    display: block;
+  }
+  > label {
+    width: 115px;
+    vertical-align: top;
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+    @media all and (max-width: $break-s) {
+      display: block;
+      margin-bottom: 0;
+      padding-bottom: 0;
+      margin-top: 10px;
+    }
+  }
+  > input {
+    @include inputPlain($w: 100%);
+    @include inputInnerShadow;
+    border: 1px solid $grey-medium;
+    border-radius: 3px;
+    outline: none;
+  }
+  > textarea {
+    border-radius: 3px;
+    min-height: 75px;
+    @include inputTextArea($w: 100%);
+    @include inputInnerShadow;
+  }
+  @media all and (min-width:  $break-m) {
+    width: 50%;
+  }
+}
+.topic__formTitle > label {
+  @media all and (max-width: $break-s) {
+    margin-top: 0;
+  }
+}
+.topic__formSubmit {
+  margin-top: 20px;
+  input {
+    @include button;
+    @media all and (max-width: $break-s) {
+      width: 100%;
+    }
+  }
+}
+.post__formContent {
+  > textarea {
+    border-radius: 3px;
+    min-height: 75px;
+    @include inputTextArea($w: 100%);
+    @include inputInnerShadow;
+  }
+}
