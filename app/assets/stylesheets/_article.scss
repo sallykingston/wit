@@ -21,7 +21,7 @@
   background-color: $white;
   // border: 1px solid $grey-light;
   margin-bottom: 1rem;
-  padding: 0.5rem;
+  padding: 1rem;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 .article__indexDate {
@@ -37,13 +37,14 @@
 .article__indexDateMo {
   font-size: 1.6rem;
   padding-top: 1rem;
+  line-height: 1rem;
 }
 .article__indexDateDay {
   font-size: 1.5rem;
 }
 .article__indexTitleDesc {
   display: inline-block;
-  height: 8rem;
+  height: 15rem;
   padding: 0 1rem;
   vertical-align: top;
   width: 85%;
@@ -60,10 +61,10 @@
   }
 }
 .article__indexDesc {
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-family: $font-fira;
   height: 5rem;
-  overflow: hidden;
+  // overflow: hidden;
 }
 // ********
 // article show classes
