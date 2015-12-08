@@ -2,7 +2,7 @@ module AuthUserLevel
   extend ActiveSupport::Concern
 
   def authenticate_wit_membership!
-    unless current_user.wit_member
+    unless current_user && current_user.wit_member
       flash[:notice] = "This area is restricted to members of CHS Women in Tech only."
       redirect_to root_path
     end
@@ -10,7 +10,7 @@ module AuthUserLevel
 
   def authenticate_admin!
     unless current_admin_user
-      flash[:notice] = "This area is restricted to administrators only."
+      flash[:notice] = "That area is restricted to administrators only."
       redirect_to root_path
     end
   end

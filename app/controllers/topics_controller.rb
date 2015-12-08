@@ -1,5 +1,5 @@
 class TopicsController < ApplicationController
-  # before_action :authenticate_wit_membership!
+  before_action :authenticate_wit_membership!
 
   def index
     @board = get_board
