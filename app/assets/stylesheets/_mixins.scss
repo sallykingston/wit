@@ -10,10 +10,10 @@
   height: $h;
 }
 
-@mixin maxWidth($w: 1300px) {
+@mixin maxWidth($w: 1000px) {
   max-width: $w;
-  margin: 0.7rem auto 0;
-  padding: 0 1rem 0.7rem;
+  margin: 10px auto;
+  padding: 0 30px;
 }
 
 @mixin backgroundImg ($path, $x: center, $y: center) {
