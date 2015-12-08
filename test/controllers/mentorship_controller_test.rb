@@ -14,4 +14,10 @@ class MentorshipControllerTest < ActionController::TestCase
     get :index
     assert_template :index
   end
+
+  test "GET #index when no current user" do
+    sign_out
+    get :index
+    assert_template :index
+  end
 end

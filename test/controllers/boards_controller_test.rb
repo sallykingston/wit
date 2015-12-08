@@ -12,6 +12,23 @@ class BoardsControllerTest < ActionController::TestCase
     sign_out
   end
 
+  class BoardsWhenNoCurrentUser < BoardsControllerTest
+    def setup
+      super
+      sign_out
+    end
+
+    test "GET #index when no user signed in" do
+      get :index, format: :html
+      assert_template :index
+    end
+
+    test "GET #show when no user signed in" do
+      get :show, format: :html, id: @board
+      assert_template :show
+    end
+  end
+
   class BoardsFormatHTML < BoardsControllerTest
     test "GET #index" do
       get :index, format: :html
@@ -20,20 +37,6 @@ class BoardsControllerTest < ActionController::TestCase
     end
 
     test "GET #show" do
-      get :show, format: :html, id: @board
-      assert_equal @board, assigns(:board)
-      assert_template :show
-    end
-
-    test "GET #index when no user signed in" do
-      session[:user_id] = nil
-      get :index, format: :html
-      assert assigns(:boards).include?(@board)
-      assert_template :index
-    end
-
-    test "GET #show when no user signed in" do
-      session[:user_id] = nil
       get :show, format: :html, id: @board
       assert_equal @board, assigns(:board)
       assert_template :show
