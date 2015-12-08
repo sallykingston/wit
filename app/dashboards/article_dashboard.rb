@@ -18,7 +18,6 @@ class ArticleDashboard < Administrate::BaseDashboard
   # COLLECTION_ATTRIBUTES
   # an array of attributes that will be displayed on the model's index page.
   COLLECTION_ATTRIBUTES = [
-    :id,
     :title,
     :content
   ]
@@ -26,6 +25,7 @@ class ArticleDashboard < Administrate::BaseDashboard
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
+    :id,
     :title,
     :created_at,
     :content

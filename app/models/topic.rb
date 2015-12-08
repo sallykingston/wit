@@ -4,4 +4,6 @@ class Topic < ActiveRecord::Base
   has_many :comments, as: :commentable
 
   validates :user_id, :board_id, :title, :content, presence: true
+
+  paginates_per 15
 end

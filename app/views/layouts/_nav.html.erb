@@ -11,6 +11,9 @@
     <% if current_admin_user %>
       <li><%= link_to "Admin Dash", admin_root_path, target: "_blank" %></li>
     <% end %>
+    <% if non_member %>
+      <li><%= render "shared/join" %></li>
+    <% end %>
     <% if current_user %>
       <li><%= link_to "Sign Out", signout_path %></li>
     <% else %>
