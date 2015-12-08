@@ -3,6 +3,7 @@
   @include maxWidth;
   padding-bottom: 50px;
   margin-bottom: 0;
+  color: $grey-dark;
 }
 .board__indexHeader {
   margin-bottom: 40px;
@@ -12,11 +13,17 @@
   }
 }
 .board__indexHeader h1 {
-  font-size: 2rem;
+  font-family: $font-puri;
   padding-top: 15px;
   @media all and (min-width: $break-s) {
     margin-left: -15px;
-    font-size: 2.3rem;
+    font-size: 4rem;
+  }
+  @media all and (max-width: $break-s) {
+    font-size: 3rem;
+  }
+  @media all and (max-width: $break-xs) {
+    font-size: 2.5rem;
   }
 }
 .board__headerLinks {
@@ -37,7 +44,7 @@
 // classes used in the boards index view
 .board__index {
   font-size: 0;
-  @media all and (max-width:  $break-s) {
+  @media all and (max-width: $break-s) {
     bottom: 100px;
   }
 }
@@ -111,8 +118,13 @@
 }
 // classes used in the board guidelines
 .board__guidelines {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin: 10px -15px;
+  @media all and (max-width: $break-m) and (min-width: $break-s) {
+    margin: 0 -10px 15px -10px;
+  }
+  @media all and (max-width: $break-s) {
+    margin: 0 0 15px 0;
+  }
 }
 .guidelines_trigger {
   position: absolute;

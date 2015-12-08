@@ -10,18 +10,30 @@
   height: 100px;
   padding-top: 1rem;
 }
+.article__indexHeader h1 {
+  font-family: $font-puri;
+  font-size: 4rem;
+  @media all and (max-width: $break-s) {
+    font-size: 3rem;
+  }
+  @media all and (max-width: $break-xs) {
+    font-size: 2.5rem;
+  }
+}
 // for all articles
-.article__index {
-
+.article__index a {
+  color: inherit;
+  &:hover {
+    color: $blue-light;
+  }
 }
 // for single article
 .article__container {
   display: block;
   overflow: hidden;
   background-color: $white;
-  // border: 1px solid $grey-light;
   margin-bottom: 1rem;
-  padding: 0.5rem;
+  padding: 0.5rem 0.5rem 1rem;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 .article__indexDate {
@@ -49,14 +61,18 @@
   width: 85%;
   @media all and (max-width: $break-s) {
     width: 75%;
-    height: 9rem;
+    height: 10rem;
+  }
+  @media all and (max-width: $break-xs) {
+    width: 75%;
+    height: 12rem;
   }
 }
 .article__indexTitle {
-  font-size: 2.5rem;
-  font-family: $font-jura;
+  font-size: 2rem;
+  font-family: $font-puri;
   @media all and (max-width: $break-s) {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 }
 .article__indexDesc {
@@ -64,6 +80,12 @@
   font-family: $font-fira;
   height: 5rem;
   overflow: hidden;
+  @media all and (max-width: $break-s) {
+    height: 7rem;
+  }
+  @media all and (max-width: $break-xs) {
+    height: 9rem;
+  }
 }
 // ********
 // article show classes
@@ -79,12 +101,12 @@
 .article__date {
   display: inline-block;
   font-size: 1rem;
-  font-family: $font-jura;
+  font-family: $font-fira;
 }
 .article__author {
   display: inline-block;
   font-size: 1rem;
-  font-family: $font-jura;
+  font-family: $font-fira;
 }
 .article__content {
 

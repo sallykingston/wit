@@ -6,6 +6,7 @@ gem 'rails', '4.2.3'
 gem 'administrate'
 # gem 'browserify-rails'
 # gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+gem 'coderay'
 gem 'coffee-rails'
 # gem 'fog-aws'
 gem 'jbuilder', '~> 2.0'
@@ -17,6 +18,7 @@ gem 'paranoia', "~> 2.0"
 gem 'pg'
 gem 'puma'
 gem 'rails_12factor', group: :production
+gem 'redcarpet'
 gem 'sass-rails', '~> 5.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'sidekiq'
