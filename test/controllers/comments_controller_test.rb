@@ -3,15 +3,15 @@ require 'test_helper'
 class CommentsControllerTest < ActionController::TestCase
   def setup
     @user = users(:one)
-    session[:user_id] = @user.id
     @attributes = Comment.attribute_names
     @comment = comments(:topic_comment)
     @comment.update_attributes(user_id: @user.id)
     @topic = topics(:one)
+    sign_in(@user)
   end
 
   def teardown
-    session[:user_id] = nil
+    sign_out
   end
 
   test "POST #create succeeds with valid attributes" do
