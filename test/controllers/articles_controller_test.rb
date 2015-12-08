@@ -7,6 +7,11 @@ class ArticlesControllerTest < ActionController::TestCase
     @attributes = Article.attribute_names
     @comment = comments(:article_comment)
     @comment.update_attributes(user_id: @user.id)
+    sign_in(@user)
+  end
+
+  def teardown
+    sign_out
   end
 
   class ArticlesFormatHTML < ArticlesControllerTest

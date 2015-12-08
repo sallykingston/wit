@@ -5,11 +5,11 @@ class BoardsControllerTest < ActionController::TestCase
     @board = boards(:one)
     @user = users(:one)
     @attributes = Board.attribute_names
-    session[:user_id] = @user.id
+    sign_in(@user)
   end
 
   def teardown
-    session[:user_id] = nil
+    sign_out
   end
 
   class BoardsFormatHTML < BoardsControllerTest
