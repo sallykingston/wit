@@ -6,7 +6,7 @@
   </div>
   <div class="article__content">
     <div class="article__paragraph">
-      <%= simple_format(@article.content) %>
+      <%= markdown(@article.content) %>
     </div>
   </div>
   <%= render partial: "shared/comments", locals: { item: @article } %>
