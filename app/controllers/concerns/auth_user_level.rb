@@ -24,4 +24,8 @@ module AuthUserLevel
   def current_admin_user
     @current_admin_user = current_user.try(:admin)
   end
+
+  def non_member
+    !current_user.try(:wit_member)
+  end
 end
