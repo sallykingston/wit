@@ -19,7 +19,7 @@
             <%= link_to article.title, article_path(article) %>
           </div>
           <div class="article__indexDesc">
-            <%= article.content %>
+            <%= markdown(article.content) %>
           </div>
         </div>
       </div>
