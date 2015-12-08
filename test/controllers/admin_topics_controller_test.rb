@@ -8,11 +8,11 @@ class AdminTopicsControllerTest < ActionController::TestCase
     @topic = topics(:one)
     @attributes = Topic.attribute_names
     @topic.update_attributes(board_id: @board.id, user_id: @admin.id)
-    session[:user_id] = @admin.id
+    sign_in(@admin)
   end
 
   def teardown
-    session[:user_id] = nil
+    sign_out
   end
 
   test "DELETE #destroy" do
