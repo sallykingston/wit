@@ -25,19 +25,23 @@
       <% end %>
     </div>
   <% end %>
-  Add Comment
-  <%= form_for([item, Comment.new(commentable_type: item.class, commentable_id: item.id)]) do |f| %>
-    <% if flash[:error] %>
-      <div class="topic__formErrors">
-        <%= flash[:error] %>
-      </div>
+  <% if current_user %>
+    Add Comment
+    <%= form_for([item, Comment.new(commentable_type: item.class, commentable_id: item.id)]) do |f| %>
+      <% if flash[:error] %>
+        <div class="topic__formErrors">
+          <%= flash[:error] %>
+        </div>
+      <% end %>
+      <div class="topic__form">
+        <div class="topic__formContent">
+          <%= f.text_field :content %>
+        </div>
+        <div class="topic__formSubmit">
+          <%= f.submit %>
+        </div>
     <% end %>
-    <div class="topic__form">
-      <div class="topic__formContent">
-        <%= f.text_field :content %>
-      </div>
-      <div class="topic__formSubmit">
-        <%= f.submit %>
-      </div>
+  <% else %>
+    Want to join the conversation? Please sign in first!
   <% end %>
 </div>
