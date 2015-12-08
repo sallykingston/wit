@@ -2,7 +2,8 @@ module AuthUserLevel
   extend ActiveSupport::Concern
 
   def authenticate_wit_membership!
-    unless current_user && current_user.wit_member
+    # unless current_user && current_user.wit_member
+    if non_member
       flash[:notice] = "This area is restricted to members of CHS Women in Tech only."
       redirect_to root_path
     end

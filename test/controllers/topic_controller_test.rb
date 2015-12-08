@@ -7,13 +7,13 @@ class TopicsControllerTest < ActionController::TestCase
     @user = users(:one)
     @attributes = Topic.attribute_names
     @topic.update_attributes(board_id: @board.id, user_id: @user.id)
-    session[:user_id] = @user.id
     @comment = comments(:topic_comment)
     @comment.update_attributes(user_id: @user.id)
+    sign_in(@user)
   end
 
   def teardown
-    session[:user_id] = nil
+    sign_out
   end
 
   class TopicsWhenNoCurrentUser < TopicsControllerTest

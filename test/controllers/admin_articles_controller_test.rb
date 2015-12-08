@@ -7,11 +7,11 @@ class AdminArticlesControllerTest < ActionController::TestCase
     @article = articles(:one)
     @article.update_attributes(user_id: @current_user.id)
     @attributes = Article.attribute_names
-    session[:user_id] = @current_user.id
+    sign_in(@current_user)
   end
 
   def teardown
-    session[:user_id] = nil
+    sign_out
   end
 
   class ArticlesFormatHTML < AdminArticlesControllerTest
