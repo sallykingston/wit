@@ -20,4 +20,5 @@ Rails.application.routes.draw do
   resources :forums, controller: "boards", only: [:index, :show] do
     resources :topics, concerns: :commentable, shallow: true
   end
+  resources :mentorship, only: [:index]
 end
