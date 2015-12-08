@@ -1,0 +1,23 @@
+<nav class="nav">
+  <ul class="nav__list nav__listLeft">
+    <li><%= link_to "Home", root_path %></li>
+    <li><%= link_to "Articles", articles_path %></li>
+    <li><%= link_to "Forum", forums_path %></li>
+  </ul>
+  <ul class="nav__list nav__listRight">
+    <% if notice %>
+      <li><%= notice %></li>
+    <% end %>
+    <% if current_admin_user %>
+      <li><%= link_to "Admin Dash", admin_root_path, target: "_blank" %></li>
+    <% end %>
+    <% if non_member %>
+      <li><%= render "shared/join" %></li>
+    <% end %>
+    <% if current_user %>
+      <li><%= link_to "Sign Out", signout_path %></li>
+    <% else %>
+      <li><%= link_to "Sign in with Meetup", "/auth/meetup" %></li>
+    <% end %>
+  </ul>
+</nav>

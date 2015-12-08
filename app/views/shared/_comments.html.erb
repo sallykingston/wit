@@ -1,0 +1,43 @@
+<div class="topic__comments">
+  <% if item.comments.empty? %>
+    <div class="topic__comment">
+      No comments to display.
+    </div>
+  <% else %>
+    <%= paginate @comments %>
+    <div class="topic__comment">
+      <% @comments.each do |comment| %>
+        <div class="topic__postHeader">
+          <div class="topic__postAvatar">
+            <%= image_tag comment.user.photo, class: 'topic__commentAvatar' %>
+          </div>
+          <div class="topic__postUser">
+            <%= comment.user.name %> replied:
+          </div>
+          <br />
+          <div class="topic__postTime">
+            <%= comment.created_at.strftime('%H:%M %m/%d/%Y') %>
+          </div>
+        </div>
+        <div class="topic__postContent">
+          <%= simple_format(comment.content) %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+  Add Comment
+  <%= form_for([item, Comment.new(commentable_type: item.class, commentable_id: item.id)]) do |f| %>
+    <% if flash[:error] %>
+      <div class="topic__formErrors">
+        <%= flash[:error] %>
+      </div>
+    <% end %>
+    <div class="topic__form">
+      <div class="topic__formContent">
+        <%= f.text_field :content %>
+      </div>
+      <div class="topic__formSubmit">
+        <%= f.submit %>
+      </div>
+  <% end %>
+</div>

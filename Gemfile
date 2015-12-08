@@ -10,6 +10,7 @@ gem 'coffee-rails'
 # gem 'fog-aws'
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
+gem 'kaminari'
 gem 'omniauth'
 gem 'omniauth-meetup'
 gem 'paranoia', "~> 2.0"

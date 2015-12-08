@@ -3,14 +3,16 @@
 <head>
   <title>Women In Tech</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand:400,700">
+  <link href='https://fonts.googleapis.com/css?family=Fira+Sans:400,700,300|Jura:400,300|Rajdhani:400,300,700|Raleway:400,100,200,300,700,800|Puritan|Cambay:400,700' rel='stylesheet' type='text/css'>
   <%= javascript_include_tag 'application' %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="main">
+    <%= render 'layouts/nav' %>
 
-<%= yield %>
-
+    <%= yield %>
+  </div>
 </body>
 </html>

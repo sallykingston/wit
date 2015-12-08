@@ -1,0 +1,35 @@
+<div class="article">
+  <div class="article__indexHeader">
+    <h1><%= @board.title %> | Create New Topic</h1>
+    <%= link_to "Return to #{@board.title}", forum_path(@board) %> |  | <%= link_to 'All Forums', forums_path %>
+  </div>
+  <%= form_for([:forum, @topic]) do |f| %>
+    <% if @topic.errors.full_messages.present? %>
+      <div class="topic__formErrors">
+        <h2>Uh oh! Your submission had the following errors:</h2>
+        <%= notice %>
+        <!-- <ul>
+          <% @topic.errors.full_messages.each do |message| %>
+            <li>
+              <%= message %>
+            </li>
+          <% end %>
+        </ul> -->
+      </div>
+    <% end %>
+    <div class="topic__form">
+      <div class="topic__formTitle">
+        <%= f.label :title, "Topic Title" %>
+        <%= f.text_field :title %>
+      </div>
+      <div class="topic__formContent">
+        <%= f.label :content, "Topic Content" %>
+        <%= f.text_area :content %>
+      </div>
+      <div class="topic__formSubmit">
+        <%= f.submit 'Submit' %>
+      </div>
+    </div>
+  <% end %>
+
+</div>

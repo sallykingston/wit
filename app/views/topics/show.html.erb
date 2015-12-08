@@ -1,0 +1,17 @@
+<div class="article">
+  <div class="article__header">
+    <h1><%= @topic.board.title %> | All Topics</h1>
+    <%= link_to "Return to #{@topic.board.title}", forum_topics_path(@topic.board) %> | <%= link_to 'All Forums', forums_path %>
+  </div>
+  <div class="article__header">
+    <h1 class="article__title"><%= @topic.title %></h1>
+    <div class="article__date">Created: <%= @topic.created_at.strftime('%B %-m, %Y') %></div>
+    <div class="article__author">by <%= @topic.user.name %></div>
+  </div>
+  <div class="article__content">
+    <div class="article__paragraph">
+      <%= simple_format(@topic.content) %>
+    </div>
+  </div>
+  <%= render partial: "shared/comments", locals: { item: @topic } %>
+</div>

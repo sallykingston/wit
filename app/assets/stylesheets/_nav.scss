@@ -1,0 +1,51 @@
+.nav {
+  position: relative;
+  @include size(100%, 50px);
+  background-color: $grey-light;
+  font-size: 0;
+  font-family: $font-camb;
+  font-weight: 400;
+  box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.75);
+}
+.nav__list {
+  display: inline-block;
+  width: 50%;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  @media all and (max-width: $break-xs) {
+    top: 30%;
+    transform: translateY(-30%);
+  }
+  > li {
+    height: 100%;
+    margin: 0 1%;
+    display: inline-block;
+  }
+  > li a {
+    color: #FFF;
+    font-size: 1.2rem;
+    @media all and (max-width: $break-m) {
+      font-size: 1rem;
+    }
+    @media all and (max-width: $break-s) {
+      font-size: 0.8rem;
+    }
+    @media all and (max-width: $break-xs) {
+      font-size: 0.5rem;
+    }
+    &:hover {
+      color: $blue-light;
+    }
+  }
+}
+.nav__listLeft {
+  text-align: left;
+  margin: 2px 0;
+  padding-left: 10px;
+}
+.nav__listRight {
+  text-align: right;
+  margin: 0;
+  padding-right: 10px;
+}

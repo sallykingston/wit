@@ -1,0 +1,13 @@
+<div class="article">
+  <div class="article__header">
+    <h1 class="article__title"><%= @article.title %></h1>
+    <div class="article__date"><%= @article.created_at.strftime('%B %-m, %Y') %></div>
+    <div class="article__author">by <%= @article.user.name %></div>
+  </div>
+  <div class="article__content">
+    <div class="article__paragraph">
+      <%= simple_format(@article.content) %>
+    </div>
+  </div>
+  <%= render partial: "shared/comments", locals: { item: @article } %>
+</div>
