@@ -10,7 +10,7 @@
   height: $h;
 }
 
-@mixin maxWidth($w: 1000px) {
+@mixin maxWidth($w: 1300px) {
   max-width: $w;
   margin: 10px auto;
   padding: 0 30px;
