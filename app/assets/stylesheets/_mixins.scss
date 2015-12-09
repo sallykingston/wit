@@ -57,40 +57,17 @@
   color: $color;
   font-weight: $weight;
 }
-@mixin paragraph {
-  @include font(15px);
-  color: $grey-dark;
-  line-height: 20px;
-  text-align: left;
-}
 @mixin font($s, $f: $primary-font) {
   font-family: $f;
   font-size: $s;
-}
-@mixin listPaws() {
-  > ul {
-    display: table;
-    list-style: none;
-    padding-left: 0;
-    > li {
-      line-height: 1.5rem;
-      display: table-row;
-    }
-    > li:before {
-      content: '';
-      padding-right: 15px;
-      display: table-cell;
-      background-position: left 5px;
-      background-repeat: no-repeat;
-      background-size: 10px;
-    }
-  }
 }
 @mixin formErrors() {
   margin: 0;
   padding-bottom: 10px;
   > h2 {
-    @include paragraph;
+    @include font(15px);
+    line-height: 20px;
+    text-align: left;
     color: $red-dark;
     margin: 0;
     padding: 5px 0;
