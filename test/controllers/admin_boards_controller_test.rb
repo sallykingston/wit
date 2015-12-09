@@ -6,11 +6,11 @@ class AdminBoardsControllerTest < ActionController::TestCase
     @admin = users(:two)
     @board = boards(:one)
     @attributes = Board.attribute_names
-    session[:user_id] = @admin.id
+    sign_in(@admin)
   end
 
   def teardown
-    session[:user_id] = nil
+    sign_out
   end
 
   class BoardsFormatHTML < AdminBoardsControllerTest

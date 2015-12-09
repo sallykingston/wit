@@ -1,6 +1,4 @@
 class BoardsController < ApplicationController
-  # before_action :authenticate_wit_membership!
-
   def index
     @boards = Board.order('title').page(params[:page])
     respond_to do |format|

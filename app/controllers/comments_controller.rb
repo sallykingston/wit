@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_action :authenticate!
+
   def create
     @comment = Comment.new(comment_params)
     @item = commented_item

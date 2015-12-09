@@ -15,7 +15,7 @@ require 'net/http'
     if user.wit_member
       redirect_to root_url, :notice => "Signed in!"
     else
-      redirect_to root_url, :notice => "Successful sign in, but we couldn't verify your WIT membership. Sadface!"
+      redirect_to root_url, :notice => "non-member"
     end
   end
 
