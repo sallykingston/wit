@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :update, :destroy]
   end
 
+  resources :about, only: [:index]
   resources :articles, only: [:index, :show], concerns: :commentable, shallow: true
   resources :forums, controller: "boards", only: [:index, :show] do
     resources :topics, concerns: :commentable, shallow: true
