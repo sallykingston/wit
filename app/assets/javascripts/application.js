@@ -13,9 +13,4 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
-
-var alertNonMember = function(notice){
-  if (notice==="non-member"){
-    $("#member-alert").modal('show');
-  }
-};
+//= require js/bootstrap
