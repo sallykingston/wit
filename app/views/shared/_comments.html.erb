@@ -5,8 +5,8 @@
     </div>
   <% else %>
     <%= paginate @comments %>
-    <div class="topic__comment">
       <% @comments.each do |comment| %>
+      <div class="topic__comment">
         <div class="topic__postHeader">
           <div class="topic__postAvatar">
             <%= image_tag comment.user.photo, class: 'topic__commentAvatar' %>
@@ -22,11 +22,10 @@
         <div class="topic__postContent">
           <%= simple_format(comment.content) %>
         </div>
+      </div>
       <% end %>
-    </div>
   <% end %>
   <% if current_user %>
-    Add Comment
     <%= form_for([item, Comment.new(commentable_type: item.class, commentable_id: item.id)]) do |f| %>
       <% if flash[:error] %>
         <div class="topic__formErrors">
@@ -34,6 +33,7 @@
         </div>
       <% end %>
       <div class="topic__form">
+        Add Comment
         <div class="topic__formContent">
           <%= f.text_field :content %>
         </div>

@@ -156,6 +156,11 @@
   @include tile(100%);
 }
 .topic__form {
+  position: relative;
+  @media all and (max-width: $break-m){
+top: 200px;
+}
+  top: 100px;
   display: table;
   width: 100%;
   label,
@@ -215,6 +220,17 @@
     }
   }
 }
+
+.topic__comment{
+  @extend .board__topic;
+  height: 200px;
+  .topic__postTime{
+    position: relative;
+    top: -25px;
+  }
+
+}
+
 .post__formContent {
   > textarea {
     border-radius: 3px;
