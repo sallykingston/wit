@@ -152,10 +152,13 @@
   cursor: pointer;
 }
 .guidelines__trigger2 {
-  @include paragraph;
-  @include size(auto, 20px);
-  cursor: pointer;
+  font-size: 1rem;
   font-style: italic;
+  line-height: 20px;
+  text-align: center;
+  vertical-align: bottom;
+  @include size(100%, 20px);
+  cursor: pointer;
   margin: 0 0 5px 15px;
 }
 .board__guidelinesTitle {
@@ -171,13 +174,14 @@
 }
 .board__guidelinesContent {
   max-height: 0;
-  @include tile($w: 100%, $pad: 0px, $bkgclr: $grey-light);
+  @include tile($w: 100%, $pad: 0px, $bkgclr: $white);
   overflow: hidden;
-  background-color: $grey-light;
   color: $grey-dark;
   font-size: 0;
   > p {
-    @include paragraph;
+    font-size: 15px;
+    line-height: 20px;
+    text-align: left;
     padding: 15px 0 0 15px;
     margin: 0;
   }
@@ -189,8 +193,24 @@
   text-align: justify;
   vertical-align: top;
   width: 50%;
-  @include listPaws;
+  > ul {
+    display: table;
+    padding-left: 0;
+    > li {
+      line-height: 1.5rem;
+      display: table-row;
+    }
+    > li:before {
+      content: '\2022';
+      padding-right: 5px;
+      display: table-cell;
+      background-position: left 5px;
+      background-repeat: no-repeat;
+      background-size: 10px;
+    }
+  }
   > h3 {
+    font-size: 1.5rem;
     margin-left: -15px;
   }
   &:first-child {
