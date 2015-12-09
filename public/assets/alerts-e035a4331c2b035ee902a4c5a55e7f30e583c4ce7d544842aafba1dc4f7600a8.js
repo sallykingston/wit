@@ -1,0 +1,1 @@
+var alertNonMember=function(e){switch(e){case"non-member":$("#member-alert").modal("show");break;case"This area is restricted to members of CHS Women in Tech only.":$("#forum-alert").modal("show")}};
