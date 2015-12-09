@@ -12,7 +12,7 @@
   width: 50%;
   position: relative;
   top: 50%;
-  transform: translateY(50%);
+  transform: translateY(-50%);
   @media all and (max-width: $break-xs) {
     top: 30%;
     transform: translateY(-30%);
@@ -24,7 +24,7 @@
   }
   > li a {
     color: #FFF;
-    font-size: 2rem;
+    font-size: 1.2rem;
     @media all and (max-width: $break-m) {
       font-size: 1rem;
     }
