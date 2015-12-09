@@ -29,11 +29,12 @@
 .board__headerLinks {
   display: inline-block;
   position: absolute;
-  bottom: 0;
+  bottom: -30px;
   right: 0;
   @media all and (max-width: $break-s) {
     display: block;
     position: relative;
+    bottom: 0px;
     > a {white-space: nowrap;}
   }
   @media all and (min-width: $break-m) {
